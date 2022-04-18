@@ -11,7 +11,7 @@ class ListTableViewController: UITableViewController {
     
     let emptyCity = Weather()
     var citiesArray = [Weather]()
-    let nameCitiesArray = ["Москва", "Петербург", "Пенза", "Сургут", "Уфа", "Челябинск", "Омск", "Екатеренбург", "Томск", "Сочи"]
+    var nameCitiesArray = ["Москва", "Петербург", "Пенза", "Сургут", "Уфа", "Челябинск", "Омск", "Екатеренбург", "Томск", "Сочи"]
 
     let networkWeatherManager = NetworkWeatherManager()
     
@@ -26,7 +26,11 @@ class ListTableViewController: UITableViewController {
     }
     
     @IBAction func pressPlusButton(_ sender: Any) {
-        
+        alertPlusCity(name: "Город", placeholder: "Введите название города") { city in
+            self.nameCitiesArray.append(city)
+            self.citiesArray.append(self.emptyCity)
+            self.addCities()
+        }
     }
     
     func addCities() {
