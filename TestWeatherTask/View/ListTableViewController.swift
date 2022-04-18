@@ -8,31 +8,75 @@
 import UIKit
 
 class ListTableViewController: UITableViewController {
+    
+    let emptyCity = Weather()
+    var citiesArray = [Weather]()
+    let nameCitiesArray = ["Москва", "Петербург", "Пенза", "Сургут", "Уфа", "Челябинск", "Омск", "Екатеренбург", "Томск", "Сочи"]
 
     let networkWeatherManager = NetworkWeatherManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         
-        networkWeatherManager.fetchWeather()
+        
+        if citiesArray.isEmpty {
+            citiesArray = Array(repeating: emptyCity, count: nameCitiesArray.count)
+        }
+        
+        addCities()
+    }
+    
+    @IBAction func pressPlusButton(_ sender: Any) {
+        
+    }
+    
+    func addCities() {
+        getCityWeather(citiesArray: self.nameCitiesArray) { (index, weather) in
+            self.citiesArray[index] = weather
+            self.citiesArray[index].name = self.nameCitiesArray[index]
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return citiesArray.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ListCell
 
+        var weather =  Weather()
         
+        weather = citiesArray[indexPath.row]
+        
+        cell.configure(weather: weather)
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, completionHandler in
+            let editingRow = self.nameCitiesArray[indexPath.row]
+            
+            if let index = self.nameCitiesArray.firstIndex(of: editingRow) {
+                self.citiesArray.remove(at: index)
+            }
+            tableView.reloadData()
+        }
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
 
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetail" {
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            let cityWeather = citiesArray[indexPath.row]
+            let destinationVC = segue.destination as! DetailViewController
+            destinationVC.weatherModel = cityWeather
+        }
+    }
 }

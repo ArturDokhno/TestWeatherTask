@@ -10,7 +10,7 @@ import Foundation
 struct WeatherData: Codable {
     let info: Info
     let fact: Fact
-    let forecast: [Forecast]
+    let forecasts: [Forecast]
 }
 
 struct Info: Codable {
@@ -18,10 +18,10 @@ struct Info: Codable {
 }
 
 struct Fact: Codable {
-    let temp: Int
+    let temp: Double
     let icon: String
     let condition: String
-    let windSpeed: Int
+    let windSpeed: Double
     let pressureMm: Int
     
     enum CodingKeys: String, CodingKey {

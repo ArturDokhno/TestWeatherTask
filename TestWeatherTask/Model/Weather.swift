@@ -9,14 +9,17 @@ import Foundation
 
 struct Weather {
     var name: String = "Название"
-    var temperature: Int
-    var conditionCode: String
-    var url: String
-    var condition: String
-    var pressureMm: Int
-    var windSpeed: Int
-    var tempMin: Int
-    var tempMax: Int
+    var temperature: Double = 0.0
+    var temperatureString: String {
+        return String(format: "%.0f", temperature)
+    }
+    var conditionCode: String = ""
+    var url: String = ""
+    var condition: String = ""
+    var pressureMm: Int = 0
+    var windSpeed: Double = 0.0
+    var tempMin: Int = 0
+    var tempMax: Int = 0
     
     var conditionString: String {
         switch condition {
@@ -42,5 +45,20 @@ struct Weather {
                 
             default: return "Загрузка..."
         }
+    }
+    
+    init?(weatherData: WeatherData) {
+        temperature = weatherData.fact.temp
+        conditionCode = weatherData.fact.icon
+        url = weatherData.info.url
+        condition = weatherData.fact.condition
+        pressureMm = weatherData.fact.pressureMm
+        windSpeed = weatherData.fact.windSpeed
+        tempMax = weatherData.forecasts.first!.parts.day.tempMax!
+        tempMin = weatherData.forecasts.first!.parts.day.tempMin!
+    }
+    
+    init() {
+        
     }
 }

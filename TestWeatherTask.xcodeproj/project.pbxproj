@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		75290655280C532200239791 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75290654280C532200239791 /* DetailViewController.swift */; };
+		75290658280C586300239791 /* SwiftSVG in Frameworks */ = {isa = PBXBuildFile; productRef = 75290657280C586300239791 /* SwiftSVG */; };
 		756CD185280BFF76002874CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756CD184280BFF76002874CB /* AppDelegate.swift */; };
 		756CD187280BFF76002874CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756CD186280BFF76002874CB /* SceneDelegate.swift */; };
 		756CD18C280BFF76002874CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 756CD18A280BFF76002874CB /* Main.storyboard */; };
@@ -17,9 +19,12 @@
 		75D48061280C140A00BC25AC /* NetworkWeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D48060280C140A00BC25AC /* NetworkWeatherManager.swift */; };
 		75D4806A280C219A00BC25AC /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D48069280C219A00BC25AC /* WeatherData.swift */; };
 		75D4806E280C28C700BC25AC /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D4806D280C28C700BC25AC /* Weather.swift */; };
+		75FC1B8E280C454B00E0DF79 /* GetCitiesWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FC1B8D280C454B00E0DF79 /* GetCitiesWeather.swift */; };
+		75FC1B90280C4D7F00E0DF79 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FC1B8F280C4D7F00E0DF79 /* ListCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		75290654280C532200239791 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		756CD181280BFF76002874CB /* TestWeatherTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestWeatherTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		756CD184280BFF76002874CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		756CD186280BFF76002874CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,6 +37,8 @@
 		75D48060280C140A00BC25AC /* NetworkWeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkWeatherManager.swift; sourceTree = "<group>"; };
 		75D48069280C219A00BC25AC /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		75D4806D280C28C700BC25AC /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		75FC1B8D280C454B00E0DF79 /* GetCitiesWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCitiesWeather.swift; sourceTree = "<group>"; };
+		75FC1B8F280C4D7F00E0DF79 /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75290658280C586300239791 /* SwiftSVG in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +86,7 @@
 				75D48060280C140A00BC25AC /* NetworkWeatherManager.swift */,
 				75D48069280C219A00BC25AC /* WeatherData.swift */,
 				75D4806D280C28C700BC25AC /* Weather.swift */,
+				75FC1B8D280C454B00E0DF79 /* GetCitiesWeather.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -86,6 +95,8 @@
 			isa = PBXGroup;
 			children = (
 				756CD198280C0003002874CB /* ListTableViewController.swift */,
+				75FC1B8F280C4D7F00E0DF79 /* ListCell.swift */,
+				75290654280C532200239791 /* DetailViewController.swift */,
 				756CD18A280BFF76002874CB /* Main.storyboard */,
 				756CD18F280BFF78002874CB /* LaunchScreen.storyboard */,
 			);
@@ -119,6 +130,9 @@
 			dependencies = (
 			);
 			name = TestWeatherTask;
+			packageProductDependencies = (
+				75290657280C586300239791 /* SwiftSVG */,
+			);
 			productName = TestWeatherTask;
 			productReference = 756CD181280BFF76002874CB /* TestWeatherTask.app */;
 			productType = "com.apple.product-type.application";
@@ -147,6 +161,9 @@
 				Base,
 			);
 			mainGroup = 756CD178280BFF76002874CB;
+			packageReferences = (
+				75290656280C586300239791 /* XCRemoteSwiftPackageReference "SwiftSVG" */,
+			);
 			productRefGroup = 756CD182280BFF76002874CB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -176,9 +193,12 @@
 			files = (
 				756CD199280C0003002874CB /* ListTableViewController.swift in Sources */,
 				756CD185280BFF76002874CB /* AppDelegate.swift in Sources */,
+				75FC1B8E280C454B00E0DF79 /* GetCitiesWeather.swift in Sources */,
 				75D48061280C140A00BC25AC /* NetworkWeatherManager.swift in Sources */,
 				756CD187280BFF76002874CB /* SceneDelegate.swift in Sources */,
 				75D4806A280C219A00BC25AC /* WeatherData.swift in Sources */,
+				75FC1B90280C4D7F00E0DF79 /* ListCell.swift in Sources */,
+				75290655280C532200239791 /* DetailViewController.swift in Sources */,
 				75D4805F280C135F00BC25AC /* Contant.swift in Sources */,
 				75D4806E280C28C700BC25AC /* Weather.swift in Sources */,
 			);
@@ -398,6 +418,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		75290656280C586300239791 /* XCRemoteSwiftPackageReference "SwiftSVG" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mchoe/SwiftSVG";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		75290657280C586300239791 /* SwiftSVG */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 75290656280C586300239791 /* XCRemoteSwiftPackageReference "SwiftSVG" */;
+			productName = SwiftSVG;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 756CD179280BFF76002874CB /* Project object */;
 }
